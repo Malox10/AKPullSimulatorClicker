@@ -1,11 +1,14 @@
 import java.awt.Robot
 
-val mode = Mode.Setup
+val mode = Mode.Rolling
 
 fun main() {
     when(mode) {
         Mode.Setup -> setup()
-        Mode.Rolling -> rolling()
+        Mode.Rolling -> {
+            val roller = Rolling()
+            roller.rolling()
+        }
     }
 }
 
@@ -16,16 +19,7 @@ fun setup() {
     }
 }
 
-fun rolling() {
-    val uiFinder = UIFinder()
-    val summonButtonLocation = uiFinder.findSummonButton() ?: error("Couldn't find summon button")
-    println("summon button at $summonButtonLocation")
-}
-
-
 enum class Mode {
     Setup,
     Rolling
 }
-
-operator fun Pair<Int, Int>.plus(other: Pair<Int, Int>) = this.first + other.first to this.second + other.second
