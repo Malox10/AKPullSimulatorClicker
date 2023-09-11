@@ -1,6 +1,7 @@
 import java.awt.Robot
 
 val mode = Mode.Rolling
+//set to rolling and hover over the summon button then start the program
 
 fun main() {
     when(mode) {
