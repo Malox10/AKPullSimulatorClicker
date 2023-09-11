@@ -37,21 +37,15 @@ class SimpleKeyListener(private val key: Int = NativeKeyEvent.VC_P, val block: (
 }
 
 class SimpleMouseListener(val block: (Int, Int) -> Unit) : NativeMouseInputListener {
-    override fun nativeMouseClicked(e: NativeMouseEvent) {
-        println("Mouse Clicked: " + e.clickCount)
-    }
-
-    override fun nativeMousePressed(e: NativeMouseEvent) {
-        println("Mouse Pressed: " + e.button)
-    }
-
     override fun nativeMouseMoved(e: NativeMouseEvent) {
         block(e.x, e.y)
     }
 
-    override fun nativeMouseDragged(e: NativeMouseEvent) {
-        println("Mouse Dragged: " + e.x + ", " + e.y)
-    }
+    override fun nativeMouseClicked(e: NativeMouseEvent) {}
+
+    override fun nativeMousePressed(e: NativeMouseEvent) {}
+
+    override fun nativeMouseDragged(e: NativeMouseEvent) {}
 }
 
 fun registerKeyListener(
