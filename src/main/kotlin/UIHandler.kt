@@ -2,9 +2,8 @@ import java.awt.Color
 import java.awt.Rectangle
 import java.awt.Robot
 
-class UIFinder {
+class UIHandler {
     private val robot = Robot()
-    //Summon Button Location (301, 295)
     fun findSummonButton(): Pair<Int, Int>? {
         val screenshotRegion = Rectangle(0, 0, screenResolution.first, screenResolution.second)
         val screenshot = robot.createScreenCapture(screenshotRegion)
